@@ -60,3 +60,26 @@ Route::prefix('categories')->group(function () {
        
     );
 });
+
+
+Route::prefix('menus')->group(function () {
+    Route::get('/', [
+        'as' => 'menus.list',
+        'uses' =>  'App\Http\Controllers\MenuController@list'
+    ]
+       
+    );
+    Route::get('/create', [
+        'as' => 'menu.create',
+        'uses' =>  'App\Http\Controllers\MenuController@create',
+    ]
+       
+    );
+    Route::post('/store', [
+        'as' => 'menu.store',
+        'uses' =>  'App\Http\Controllers\MenuController@store',
+    ]
+       
+    );
+
+});
