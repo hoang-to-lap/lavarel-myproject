@@ -61,7 +61,8 @@ return view('category.edit' , compact('category','htmlOption'));
     }
 
      public function delete($id){
-
+$this->category->find($id)->delete();
+ return redirect()->route(route:'categories.list');
     }
     public function update($id , Request $request){
         $this->category->find($id)->update(

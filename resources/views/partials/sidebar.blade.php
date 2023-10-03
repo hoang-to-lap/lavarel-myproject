@@ -28,7 +28,16 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Danh muc san pham
-                <span class="right badge badge-danger">New</span>
+             
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('menus.list')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Menus
+          
               </p>
             </a>
           </li>
