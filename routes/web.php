@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [AdminController::class , 'loginAdmin']
+)->name('back');
+Route::post('/', [AdminController::class , 'postLoginAdmin']
+)->name('login');
 Route::get('/home', function () {
     return view('home');
 });
@@ -81,5 +83,22 @@ Route::prefix('menus')->group(function () {
     ]
        
     );
-
+    Route::get('/edit/{id}', [
+        'as' => 'menu.edit',
+        'uses' =>  'App\Http\Controllers\MenuController@edit',
+    ]
+       
+    );
+    Route::post('/update/{id}', [
+        'as' => 'menu.update',
+        'uses' =>  'App\Http\Controllers\MenuController@update',
+    ]
+       
+    );
+    Route::get('/delete/{id}', [
+        'as' => 'menu.delete',
+        'uses' =>  'App\Http\Controllers\MenuController@delete',
+    ]
+       
+    );
 });

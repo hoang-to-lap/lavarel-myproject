@@ -38,8 +38,8 @@
               <th scope="row">{{$value->id}}</th>
               <td>{{$value->name}}</td>
               <td>
-                <a href="{{route('categories.edit' , ['id' => $value->id])}}" class="btn btn-default">Sửa</a>
-                 <a href="{{route('categories.delete',['id' => $value->id])}}" class="btn btn-danger">Xóa</a>  
+                <a href="{{route('menu.edit' , ['id' => $value->id])}}" class="btn btn-default">Sửa</a>
+                 <a href="{{route('menu.delete',['id' => $value->id])}}" class="btn btn-danger">Xóa</a>  
               
               </td>
              

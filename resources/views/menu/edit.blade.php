@@ -6,7 +6,7 @@
 @section('content')
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
- @include('partials/content-header' , ['name' => 'category',
+ @include('partials/content-header' , ['name' => 'Menu',
  'key' => 'Edit'
  
  ])
@@ -18,12 +18,12 @@
       <div class="row">
  <!-- Form them danh muc san pham  -->
  <div class="col-md-12">
- <form action="{{route('categories.update' , ['id'=>$category->id])}}" method="post">
+ <form action="{{route('menu.update' , ['id'=>$menu->id])}}" method="post">
   @csrf
   <div class="mb-3">
     <label  class="form-label">Sửa danh mục</label>
     <input  class="form-control" id="exampleInputEmail1" 
-    value="{{$category->name}}"
+    value="{{$menu->name}}"
     aria-describedby="emailHelp" name = "txtName">
     <div class="mb-3 mt-3">
       <label  class="form-label">Danh mục cha</label>
