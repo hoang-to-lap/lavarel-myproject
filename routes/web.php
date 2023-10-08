@@ -13,14 +13,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [AdminController::class , 'loginAdmin']
+//Route Admin
+Route::get('/AdminLogin', [AdminController::class , 'loginAdmin']
 )->name('back');
-Route::post('/', [AdminController::class , 'postLoginAdmin']
+Route::post('/AdminLogin', [AdminController::class , 'postLoginAdmin']
 )->name('login');
 Route::get('/home', function () {
     return view('home');
 });
+//Route Category
 Route::prefix('categories')->group(function () {
     Route::get('/', [
         'as' => 'categories.list',
@@ -63,7 +64,7 @@ Route::prefix('categories')->group(function () {
     );
 });
 
-
+//route menus
 Route::prefix('menus')->group(function () {
     Route::get('/', [
         'as' => 'menus.list',
@@ -101,4 +102,18 @@ Route::prefix('menus')->group(function () {
     ]
        
     );
+});
+//route product
+Route::prefix('products')->group(function () {
+    Route::get('/', [
+        'as' => 'product.list',
+        'uses' =>  'App\Http\Controllers\AdminProductController@list'
+    ]
+       
+    );
+    Route::get('/create', [
+        'as' => 'product.create',
+        'uses' =>  'App\Http\Controllers\AdminProductController@create',
+    ]
+);
 });
