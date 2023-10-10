@@ -6,9 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Components\Recusive;
 use App\Models\Category;
+use App\Traits\StoreImageTrait;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
 
 class AdminProductController extends Controller
+
 {
+    use StoreImageTrait;
     private $category;
     public function __construct(Category $category){
      
@@ -28,4 +34,10 @@ class AdminProductController extends Controller
         $htmlOption =   $recusive->categoryRecusive($parentid);
         return $htmlOption;
     }
+    public function store(Request $request){
+        $dataUpload = $this->storeTraitUpload($request , fieldName:'txtImage' , folderName:'product');
+       
+dd($dataUpload);
+    }
+
 }
