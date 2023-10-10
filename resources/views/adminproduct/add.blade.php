@@ -24,7 +24,7 @@
       <div class="row">
  <!-- Form them danh muc san pham  -->
  <div class="col-md-12">
- <form action="" method="post" enctype="multipart/form-data">
+ <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
   @csrf
   <div class="mb-3">
     <label  class="form-label">Tên sản phẩm</label>
