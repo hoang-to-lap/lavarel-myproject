@@ -28,16 +28,16 @@
   @csrf
   <div class="mb-3">
     <label  class="form-label">Tên sản phẩm</label>
-    <input  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name = "txtName">
+    <input  class="form-control" id="exampleInputEmail1"  name = "txtName">
     <label  class="form-label">Giá sản phẩm</label>
-    <input  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name = "txtPrice">
+    <input  class="form-control" id="exampleInputEmail1" name = "txtPrice">
     <label  class="form-label">Ảnh sản phẩm</label>
     <input  type="file" class="form-control-file" id="exampleInputEmail1" aria-describedby="emailHelp" name = "txtImage">
     <label  class="form-label">Ảnh chi tiết</label>
     <input  type="file" class="form-control-file" multiple id="exampleInputEmail1" aria-describedby="emailHelp" name = "txtImageDetail[]">
     <div class="mb-3 mt-3">
       <label  class="form-label">Chọn danh mục</label>
-      <select  class="form-select select2_init" name="txtParent_id">
+      <select  class="form-select select2_init" name="txtCategory_id">
         <option value="">Chọn damh mục </option>
        {!!$htmlOption!!}
       </select>
@@ -73,7 +73,7 @@
   $(function(){
     $(".tags_select_choose").select2({
     tags: true,
-    tokenSeparators: [',', ' ']
+    tokenSeparators: [',']
 })
 $(".select2_init").select2({
   placeholder: "Chọn danh mục",

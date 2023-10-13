@@ -2,7 +2,9 @@
 @section('title')
 <title>Trang chu</title>
 @endsection
-
+@section('css')
+<link rel="stylesheet" href="{{asset('admins/product.css')}}">
+@endsection
 @section('content')
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -37,12 +39,15 @@
 
             <tbody>
            
-            
+            @foreach($products as $value)
               <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
+              <td>{{$value->id}}</td>
+                <td>{{$value->name}}</td>
+                <td>{{ number_format($value->price) }}</td>
+                <td>
+                  <img class="image_product" src="{{$value->feature_image_path}}" alt="" srcset="" >
+                </td>
+                <td>{{$value->category->name}}</td>
                 <td></td>
                 <td>
                   <a href="" class="btn btn-default">Sửa</a>
@@ -52,16 +57,20 @@
                
               </tr>
          
-   
+              @endforeach
             
   
             </tbody>
           </table>
         </div>
+        
       
         <!-- /.col-md-6 -->
       </div>
       <!-- /.row -->
+      <div class="col-md-12">
+          {{$products->links()}}
+        </div>
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.content -->
