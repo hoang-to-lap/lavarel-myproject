@@ -10,12 +10,31 @@ public function storeTraitUpload($request,$fieldName,$folderName){
         $filename = Str::random(length:20) . '.' . $file->getClientOriginalExtension();
     $path = $request->file($fieldName)->storeAs('public/'. $folderName . '/' . auth()->id(),$filename);
     $dataImageUpload = [
-    'flie_name' => $filenameOrigin,
+    'file_name' => $filenameOrigin,
     'file_path' =>Storage::url($path)
     ];
     return $dataImageUpload;
     }
     return null;
+   
+
+}
+
+
+//upload detail image
+public function storeTraitUploadDetail($file,$folderName){
+ 
+        
+        $filenameOrigin =$file->getClientOriginalName();
+        $filename = Str::random(length:20) . '.' . $file->getClientOriginalExtension();
+    $path = $file->storeAs('public/'. $folderName . '/' . auth()->id(),$filename);
+    $dataImageUpload = [
+    'file_name' => $filenameOrigin,
+    'file_path' =>Storage::url($path)
+    ];
+    return $dataImageUpload;
+    
+
    
 
 }
