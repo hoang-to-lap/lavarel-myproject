@@ -18,9 +18,12 @@ Route::get('/AdminLogin', [AdminController::class , 'loginAdmin']
 )->name('back');
 Route::post('/AdminLogin', [AdminController::class , 'postLoginAdmin']
 )->name('login');
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/AdminLogout', [AdminController::class , 'logoutAdmin']
+)->name('goback');
+// Route::get('/home', function () {
+//     return view('home');
+// });
+Route::get('/home', [AdminController::class,'showhome'])->name('showhome');
 //Route Category
 Route::prefix('categories')->group(function () {
     Route::get('/', [
@@ -119,6 +122,21 @@ Route::prefix('products')->group(function () {
 Route::post('/store', [
     'as' => 'product.store',
     'uses' =>  'App\Http\Controllers\AdminProductController@store',
+]
+);
+Route::get('/edit/{id}', [
+    'as' => 'product.edit',
+    'uses' =>  'App\Http\Controllers\AdminProductController@edit',
+]
+);
+Route::post('/update/{id}', [
+    'as' => 'product.update',
+    'uses' =>  'App\Http\Controllers\AdminProductController@update',
+]
+);
+Route::get('/delete/{id}', [
+    'as' => 'product.delete',
+    'uses' =>  'App\Http\Controllers\AdminProductController@delete',
 ]
 );
 });

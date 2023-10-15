@@ -152,8 +152,7 @@ button{
         <label for="password">Password</label>
         <input type="password" placeholder="Password" id="password" name="txtPass">
 
-    <label for="remember-me"><span>Remember me</span>  <span>
-        <input type="checkbox"  name="remember_me" class="cb">
+    
     </span>
 
 </label></br>

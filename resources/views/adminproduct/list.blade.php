@@ -5,6 +5,10 @@
 @section('css')
 <link rel="stylesheet" href="{{asset('admins/product.css')}}">
 @endsection
+@section('js')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="{{asset('admins/product.js')}}"></script>
+@endsection
 @section('content')
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -50,8 +54,10 @@
                 <td>{{$value->category->name}}</td>
                 <td></td>
                 <td>
-                  <a href="" class="btn btn-default">Sửa</a>
-                   <a href="" class="btn btn-danger">Xóa</a>  
+                  <a href="{{route('product.edit',['id'=>$value->id])}}" class="btn btn-default">Sửa</a>
+                   <a href="" 
+                   data-url = "{{route('product.delete',['id'=>$value->id])}}"
+                   class="btn btn-danger action_delete">Xóa</a>  
                 
                 </td>
                
