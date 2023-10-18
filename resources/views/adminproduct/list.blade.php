@@ -51,7 +51,7 @@
                 <td>
                   <img class="image_product" src="{{$value->feature_image_path}}" alt="" srcset="" >
                 </td>
-                <td>{{$value->category->name}}</td>
+                 <td>{{$value->category->name}}</td> 
                 <td></td>
                 <td>
                   <a href="{{route('product.edit',['id'=>$value->id])}}" class="btn btn-default">Sửa</a>

@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -140,3 +142,15 @@ Route::get('/delete/{id}', [
 ]
 );
 });
+//fontend 
+Route::get('/', [HomeController::class , 'index']
+)->name('home.shop');
+Route::get('/myshop', [HomeController::class , 'shop']
+)->name('shop.product');
+Route::get('/product/{slug}/{id}', [
+    'as' => 'shop.productofcategory',
+    'uses' =>  'App\Http\Controllers\CategoryController@productOfCategory',
+    ]
+);
+Route::get('/detail/{id}', [HomeController::class , 'detail']
+)->name('product.detail');

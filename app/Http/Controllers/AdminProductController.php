@@ -56,6 +56,7 @@ class AdminProductController extends Controller
         return view('adminproduct.add',compact(var_name:'htmlOption'));
     }
     function getCategory($parentid){
+       
         $data = $this->category->all();
         $recusive = new Recusive($data);
         
@@ -117,7 +118,7 @@ return redirect()->route('product.list');
 
     //update san pham
     public function update($id,Request $request){
-        $this->AuthLog();
+    
         $dataProductUpdate = [
 'name' => $request->txtName,
 'price' => $request->txtPrice,

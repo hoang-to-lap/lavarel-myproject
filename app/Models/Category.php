@@ -11,4 +11,10 @@ class Category extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable = ['name' , 'parent_id' , 'slug'];
+    public function categoryChirld(){
+        return $this->hasMany(Category::class , 'parent_id');
+    }
+    public function productOfCategory(){
+        return $this->hasMAny(Product::class , 'category_id');
+    }
 }

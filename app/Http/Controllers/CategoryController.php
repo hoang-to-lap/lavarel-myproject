@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Components\Recusive;
 use Illuminate\Support\Str;
+use App\Models\Menu;
+use App\Models\Product;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
+
+
 
 class CategoryController extends Controller
 {
@@ -87,6 +92,16 @@ $this->category->find($id)->delete();
             ]
             );
             return redirect()->route(route:'categories.list');
+
+    }
+    public function productOfCategory($slug,$id){
+        $categories = Category::where('parent_id',0)->get();
+        $menus = Menu::where('parent_id',0)->get();
+         $product = Product::where('category_id' , $id)->paginate(6);
+
+      
+         return view('shop.component.productcategory', compact('categories','menus','product'));
+       
 
     }
 }
