@@ -3,3 +3,11 @@ width: 150px;
 height: 150px;
 object-fit: cover;
 }
+.image_detail{
+    width: 70%;
+    height: 130px;
+    object-fit: cover;
+}
+.container_image_detail{
+    margin-top: 20px;
+}

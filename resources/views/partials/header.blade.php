@@ -16,6 +16,13 @@
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
       <li class="nav-item">
+        <a class="nav-link" href="{{route('goback')}}" role="button">
+        <button type="button" class="btn btn-primary">Logout</button>
+        </a>
+       
+          
+      </li>
+      <li class="nav-item">
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
           <i class="fas fa-search"></i>
         </a>

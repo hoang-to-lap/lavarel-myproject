@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
-{
+{    use SoftDeletes;
     use HasFactory;
     protected $fillable = ['name' , 'price' , 'feature_image_path' , 'content' , 'user_id' , 'category_id' , 'feature_image_name'];
     public function images(){
@@ -18,4 +19,9 @@ class Product extends Model
     public function category(){
         return $this->belongsTo(Category::class,foreignKey:'category_id');
     }
+    public function productimage(){
+        return $this->hasMany(ProductImage::class,foreignKey:'product_id');
+    }
+ 
 }
+

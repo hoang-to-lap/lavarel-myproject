@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +20,12 @@ Route::get('/AdminLogin', [AdminController::class , 'loginAdmin']
 )->name('back');
 Route::post('/AdminLogin', [AdminController::class , 'postLoginAdmin']
 )->name('login');
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/AdminLogout', [AdminController::class , 'logoutAdmin']
+)->name('goback');
+// Route::get('/home', function () {
+//     return view('home');
+// });
+Route::get('/home', [AdminController::class,'showhome'])->name('showhome');
 //Route Category
 Route::prefix('categories')->group(function () {
     Route::get('/', [
@@ -121,4 +126,31 @@ Route::post('/store', [
     'uses' =>  'App\Http\Controllers\AdminProductController@store',
 ]
 );
+Route::get('/edit/{id}', [
+    'as' => 'product.edit',
+    'uses' =>  'App\Http\Controllers\AdminProductController@edit',
+]
+);
+Route::post('/update/{id}', [
+    'as' => 'product.update',
+    'uses' =>  'App\Http\Controllers\AdminProductController@update',
+]
+);
+Route::get('/delete/{id}', [
+    'as' => 'product.delete',
+    'uses' =>  'App\Http\Controllers\AdminProductController@delete',
+]
+);
 });
+//fontend 
+Route::get('/', [HomeController::class , 'index']
+)->name('home.shop');
+Route::get('/myshop', [HomeController::class , 'shop']
+)->name('shop.product');
+Route::get('/product/{slug}/{id}', [
+    'as' => 'shop.productofcategory',
+    'uses' =>  'App\Http\Controllers\CategoryController@productOfCategory',
+    ]
+);
+Route::get('/detail/{id}', [HomeController::class , 'detail']
+)->name('product.detail');
