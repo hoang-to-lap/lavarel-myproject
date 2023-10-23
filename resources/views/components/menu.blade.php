@@ -26,10 +26,17 @@
                             @endforeach
                           
                         </div>
+                   @if(Session::get('name'))
                         <div class="navbar-nav ml-auto py-0">
-                            <a href="" class="nav-item nav-link">Login</a>
-                            <a href="" class="nav-item nav-link">Register</a>
+                            <a href="" class="nav-item nav-link">{{Session::get('name')}}</a>
+                            <a href="{{route('logout')}}" class="nav-item nav-link">Logout</a>
                         </div>
+                 @else
+                        <div class="navbar-nav ml-auto py-0">
+                            <a href="{{route('login.user')}}" class="nav-item nav-link">Login</a>
+                            <a href="{{route('dangki.user')}}" class="nav-item nav-link">Register</a>
+                        </div>
+                        @endif
                     </div>
                 </nav>
             </div>

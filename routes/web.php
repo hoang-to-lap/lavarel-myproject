@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -154,3 +155,23 @@ Route::get('/product/{slug}/{id}', [
 );
 Route::get('/detail/{id}', [HomeController::class , 'detail']
 )->name('product.detail');
+Route::get('/search/', [HomeController::class , 'search']
+)->name('product.search');
+Route::get('/loginuser', [HomeController::class , 'login']
+)->name('login.user');
+Route::get('/registeruser', [HomeController::class , 'dangki']
+)->name('dangki.user');
+Route::post('/dangki', [HomeController::class , 'createaccount']
+)->name('create.user');
+Route::post('/dangnhap', [HomeController::class , 'dangnhap']
+)->name('dangnhap.user');
+Route::get('/userlogout', [HomeController::class , 'logoutUser']
+)->name('logout');
+// Shopping cart
+Route::post('/cart/{id}',[CartController::class,'addcart'])->name('addcart');
+Route::get('/showcart',[CartController::class,'showcart'])->name('showcart');
+Route::get('/deletecart/{id}',[CartController::class,'deletecart'])->name('deletecart');
+Route::get('/clear',[CartController::class,'clear'])->name('clearcart');
+Route::get('/updategiam/{id}',[CartController::class,'updategiam'])->name('updatecart.giam');
+Route::get('/updatetang/{id}',[CartController::class,'updatetang'])->name('updatecart.tang');
+Route::get('/updatecart',[CartController::class,'updateCart'])->name('updatecart');
