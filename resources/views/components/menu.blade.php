@@ -26,7 +26,7 @@
                             @endforeach
                           
                         </div>
-                   @if(Session::get('name'))
+                   @if(Session::get('id_user'))
                         <div class="navbar-nav ml-auto py-0">
                             <a href="" class="nav-item nav-link">{{Session::get('name')}}</a>
                             <a href="{{route('logout')}}" class="nav-item nav-link">Logout</a>

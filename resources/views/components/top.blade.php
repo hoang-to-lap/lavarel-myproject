@@ -49,14 +49,23 @@
                 </form>
             </div>
             <div class="col-lg-3 col-6 text-right">
+            
                 <a href="" class="btn border">
+                    
                     <i class="fas fa-heart text-primary"></i>
                     <span class="badge">0</span>
                 </a>
+                @if(Session::get('id_user'))
                 <a href="{{route('showcart')}}" class="btn border">
                     <i class="fas fa-shopping-cart text-primary"></i>
                     <span class="badge">0</span>
                 </a>
+                @else
+                <a href="{{route('login.user')}}" class="btn border">
+                    <i class="fas fa-shopping-cart text-primary"></i>
+                    <span class="badge">0</span>
+                </a>
+                @endif
             </div>
         </div>
     </div>

@@ -63,7 +63,7 @@
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                 <h6 class="text-truncate mb-3">{{$item->name}}</h6>
                                 <div class="d-flex justify-content-center">
-                                    <h6>{{$item->price}} VND</h6>
+                                    <h6>{{number_format($item->price)}} VND</h6>
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-between bg-light border">

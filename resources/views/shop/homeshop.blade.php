@@ -110,7 +110,7 @@
                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                         <h6 class="text-truncate mb-3">{{$productItem->name}}</h6>
                         <div class="d-flex justify-content-center">
-                            <h6>{{$productItem->price}} VND</h6>
+                            <h6>{{number_format($productItem->price)}} VND</h6>
                         </div>
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-light border">
@@ -300,28 +300,28 @@
             <div class="col">
                 <div class="owl-carousel vendor-carousel">
                     <div class="vendor-item border p-4">
-                        <img src="img/vendor-1.jpg" alt="">
+                        <img src="eshopper-1.0.0/img/vendor-1.jpg" alt="">
                     </div>
                     <div class="vendor-item border p-4">
-                        <img src="img/vendor-2.jpg" alt="">
+                        <img src="eshopper-1.0.0/img/vendor-2.jpg" alt="">
                     </div>
                     <div class="vendor-item border p-4">
-                        <img src="img/vendor-3.jpg" alt="">
+                        <img src="eshopper-1.0.0/img/vendor-3.jpg" alt="">
                     </div>
                     <div class="vendor-item border p-4">
-                        <img src="img/vendor-4.jpg" alt="">
+                        <img src="eshopper-1.0.0/img/vendor-4.jpg" alt="">
                     </div>
                     <div class="vendor-item border p-4">
-                        <img src="img/vendor-5.jpg" alt="">
+                        <img src="eshopper-1.0.0/img/vendor-5.jpg" alt="">
                     </div>
                     <div class="vendor-item border p-4">
-                        <img src="img/vendor-6.jpg" alt="">
+                        <img src="eshopper-1.0.0/img/vendor-6.jpg" alt="">
                     </div>
                     <div class="vendor-item border p-4">
-                        <img src="img/vendor-7.jpg" alt="">
+                        <img src="eshopper-1.0.0/img/vendor-7.jpg" alt="">
                     </div>
                     <div class="vendor-item border p-4">
-                        <img src="img/vendor-8.jpg" alt="">
+                        <img src="eshopper-1.0.0/img/vendor-8.jpg" alt="">
                     </div>
                 </div>
             </div>
